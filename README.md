@@ -83,8 +83,10 @@ Contagem de avisos por nível de urgência
  Conceitos de POO Aplicados
 
  **Encapsulamento**
+ 
  **Herança**
    Morador → MoradorComum, LiderComunitario
+   
    Aviso → AvisoSeguranca,AvisoSaude , AvisoInfraestrutura
  **Polimorfismo**
   - Método exibirAlerta() com comportamentos diferentes
