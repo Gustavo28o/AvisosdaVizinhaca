@@ -52,44 +52,44 @@ src/
  Funcionalidades
 
 Moradores
-- Cadastro de moradores
-- Identificação por ID automático
-- Diferenciação por tipo:
-  - Morador comum
-  - Líder comunitário
+Cadastro de moradores
+Identificação por ID automático
+Diferenciação por tipo:
+Morador comum
+Líder comunitário
 
 Avisos
-- Envio de avisos com:
-  - Título
-  - Descrição
-  - Local
-  - Nível de urgência:
-    - Verde (informativo)
-    - Amarelo (atenção)
-    - Vermelho (urgente)
+ Envio de avisos com:
+   Título
+   Descrição
+   Local
+   Nível de urgência:
+     Verde (informativo)
+     Amarelo (atenção)
+     Vermelho (urgente)
 
-- Listagem de avisos
-- Listagem de avisos por morador
+ Listagem de avisos
+ Listagem de avisos por morador
 
 
 Filtros
-- Filtrar avisos por urgência
+ Filtrar avisos por urgência
 
 
  Estatísticas
-- Contagem de avisos por nível de urgência
+Contagem de avisos por nível de urgência
 
 
  Conceitos de POO Aplicados
 
-- **Encapsulamento**
-- **Herança**
-  - `Morador` → `MoradorComum`, `LiderComunitario`
-  - `Aviso` → `AvisoSeguranca`, `AvisoSaude`, `AvisoInfraestrutura`
-- **Polimorfismo**
-  - Método `exibirAlerta()` com comportamentos diferentes
-- **Abstração**
-  - Classes abstratas (`Morador`, `Aviso`)
+ **Encapsulamento**
+ **Herança**
+   Morador → MoradorComum, LiderComunitario
+   Aviso → AvisoSeguranca,AvisoSaude , AvisoInfraestrutura
+ **Polimorfismo**
+  - Método exibirAlerta() com comportamentos diferentes
+ **Abstração**
+   Classes abstratas (Morado, Aviso)
 
 ## Como executar
 1. Clone o repositório:https://github.com/Gustavo28o/AvisosdaVizinhaca.git
