@@ -85,12 +85,16 @@ Contagem de avisos por nível de urgência
  **Encapsulamento**
  
  **Herança**
+ 
    Morador → MoradorComum, LiderComunitario
    
    Aviso → AvisoSeguranca,AvisoSaude , AvisoInfraestrutura
  **Polimorfismo**
+ 
   - Método exibirAlerta() com comportamentos diferentes
+  - 
  **Abstração**
+
    Classes abstratas (Morado, Aviso)
 
 ## Como executar
