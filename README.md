@@ -99,9 +99,24 @@ Método exibirAlerta() com comportamentos diferentes
   Classes abstratas (Morado, Aviso)
 
 ## Como executar
-1. Clone o repositório:https://github.com/Gustavo28o/AvisosdaVizinhaca.git
-2. Compile: `javac src/*.java`
-3. Execute: `java src/Main`
+
+
+1. Clone o repositório:
+   git clone https://github.com/Gustavo28o/AvisosdaVizinhaca.git
+
+2. Acesse a pasta do projeto:
+   cd AvisosdaVizinhaca
+
+3. Compile o projeto (gerando os arquivos `.class` na pasta `bin`):
+   javac -d bin src/view/*.java src/controller/*.java src/model/*.java src/service/*.java
+
+4. Execute o programa:
+   java -cp bin view.Main
+
+## Observações importantes
+
+* O projeto utiliza packages, por isso não funciona usar comandos como `javac src/*.java` ou `java src/Main`
+* A pasta `bin` é usada como destino dos arquivos compilados (`.class`)
 
 ## Autores- 
 Gustavo Cruz - RA: 12526162328
