@@ -89,13 +89,14 @@ Contagem de avisos por nível de urgência
    Morador → MoradorComum, LiderComunitario
    
    Aviso → AvisoSeguranca,AvisoSaude , AvisoInfraestrutura
+   
  **Polimorfismo**
  
-  - Método exibirAlerta() com comportamentos diferentes
-  - 
+Método exibirAlerta() com comportamentos diferentes
+   
  **Abstração**
 
-   Classes abstratas (Morado, Aviso)
+  Classes abstratas (Morado, Aviso)
 
 ## Como executar
 1. Clone o repositório:https://github.com/Gustavo28o/AvisosdaVizinhaca.git
