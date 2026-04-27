@@ -104,6 +104,15 @@ public class ConsoleView {
         System.out.print("Descrição: ");
         String descricao = sc.nextLine();
 
+        
+        System.out.println("Tipo de aviso:");
+        System.out.println("1 - Segurança");
+        System.out.println("2 - Infraestrutura");
+        System.out.println("3 - Saúde");
+
+        int tipo = sc.nextInt();
+        sc.nextLine();
+
         System.out.println("Urgência:");
         System.out.println("1 - VERDE");
         System.out.println("2 - AMARELO");
@@ -122,7 +131,7 @@ public class ConsoleView {
         System.out.print("Local: ");
         String local = sc.nextLine();
 
-        controller.enviarAviso(morador, titulo, descricao, urgencia, local);
+       controller.enviarAviso(morador, titulo, descricao, urgencia, local, tipo);
 
         System.out.println("Aviso enviado com sucesso!");
     }
