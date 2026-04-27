@@ -1,4 +1,4 @@
-Vizinhança Conectada
+Avisos da vizinhança
 
 Sistema desenvolvido em Java com arquitetura MVC que permite a comunicação entre moradores de uma comunidade por meio de avisos classificados por nível de urgência.
 
