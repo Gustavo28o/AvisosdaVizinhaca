@@ -31,7 +31,7 @@ public class SistemaController {
     // AVISO
     // =========================
 
-  public void enviarAviso(Morador m, String titulo, String desc, String urgencia, String local) {
+    public void enviarAviso(Morador m, String titulo, String desc, String urgencia, String local, int tipo) {
     if (m == null) {
         System.out.println("Erro: morador inválido.");
         return;
@@ -43,14 +43,28 @@ public class SistemaController {
     }
 
     int novoId = avisoService.gerarProximoId();
-    Aviso aviso = new AvisoSeguranca(novoId, titulo, desc, urgencia, local, m);
+    Aviso aviso;
+
+    switch (tipo) {
+        case 1:
+            aviso = new AvisoSeguranca(novoId, titulo, desc, urgencia, local, m);
+            break;
+        case 2:
+            aviso = new AvisoInfraestrutura(novoId, titulo, desc, urgencia, local, m);
+            break;
+        case 3:
+            aviso = new AvisoSaude(novoId, titulo, desc, urgencia, local, m);
+            break;
+        default:
+            System.out.println("Tipo inválido. Usando Segurança.");
+            aviso = new AvisoSeguranca(novoId, titulo, desc, urgencia, local, m);
+    }
 
     avisoService.enviarAviso(aviso);
     m.adicionarAviso(aviso);
-    
+
     System.out.println("✅ Aviso enviado com sucesso! ID: " + novoId);
 }
-
     public void listarAvisos() {
         List<Aviso> avisos = avisoService.listar();
 
