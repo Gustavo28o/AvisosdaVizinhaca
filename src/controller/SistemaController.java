@@ -15,8 +15,8 @@ public class SistemaController {
     // MORADOR
     // =========================
 
-    public Morador cadastrarMorador(String nome, String end, String tel, String email) {
-        return moradorService.cadastrar(nome, end, tel, email);
+    public Morador cadastrarMorador(String nome, String end, String tel, String email, String senha) {
+        return moradorService.cadastrar(nome, end, tel, email, senha);
     }
 
     public Morador buscarMorador(int id) {
@@ -31,6 +31,7 @@ public class SistemaController {
     // AVISO
     // =========================
 
+<<<<<<< Updated upstream
     public void enviarAviso(Morador m, String titulo, String desc, String urgencia, String local, int tipo) {
     if (m == null) {
         System.out.println("Erro: morador inválido.");
@@ -65,6 +66,47 @@ public class SistemaController {
 
     System.out.println("✅ Aviso enviado com sucesso! ID: " + novoId);
 }
+=======
+    public void enviarAviso(Morador m, String senha, String titulo, String desc, String urgencia, String local, int tipo) {
+
+        if (m == null) {
+            System.out.println("Erro: morador inválido.");
+            return;
+        }
+
+        if (!m.getSenha().equals(senha)) {
+            System.out.println("❌ Senha incorreta!");
+            return;
+        }
+
+        if (!m.podeEnviarAviso()) {
+            System.out.println("Sem permissão.");
+            return;
+        }
+
+        int novoId = avisoService.gerarProximoId();
+        Aviso aviso;
+
+        switch (tipo) {
+            case 1:
+                aviso = new AvisoSeguranca(novoId, titulo, desc, urgencia, local, m);
+                break;
+            case 2:
+                aviso = new AvisoInfraestrutura(novoId, titulo, desc, urgencia, local, m);
+                break;
+            case 3:
+                aviso = new AvisoSaude(novoId, titulo, desc, urgencia, local, m);
+                break;
+            default:
+                aviso = new AvisoSeguranca(novoId, titulo, desc, urgencia, local, m);
+        }
+
+        avisoService.enviarAviso(aviso);
+        m.adicionarAviso(aviso);
+
+        System.out.println("✅ Aviso enviado!");
+    }
+>>>>>>> Stashed changes
     public void listarAvisos() {
         List<Aviso> avisos = avisoService.listar();
 

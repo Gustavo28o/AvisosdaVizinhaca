@@ -70,6 +70,9 @@ public class ConsoleView {
         System.out.print("Nome: ");
         String nome = sc.nextLine();
 
+        System.out.print("Senha: ");
+        String senha = sc.nextLine();
+
         System.out.print("Endereço: ");
         String endereco = sc.nextLine();
 
@@ -79,7 +82,7 @@ public class ConsoleView {
         System.out.print("Email: ");
         String email = sc.nextLine();
 
-        Morador m = controller.cadastrarMorador(nome, endereco, telefone, email);
+        Morador m = controller.cadastrarMorador(nome, endereco, telefone, email, senha);
 
         System.out.println("Morador cadastrado! ID: " + m.getId());
     }
@@ -92,19 +95,23 @@ public class ConsoleView {
         sc.nextLine();
 
         Morador morador = controller.buscarMorador(id);
-
+        
         if (morador == null) {
             System.out.println("Morador não encontrado!");
             return;
         }
-
+        System.out.print("Senha: ");
+        String senha = sc.nextLine();
         System.out.print("Título: ");
         String titulo = sc.nextLine();
 
         System.out.print("Descrição: ");
         String descricao = sc.nextLine();
 
+<<<<<<< Updated upstream
         
+=======
+>>>>>>> Stashed changes
         System.out.println("Tipo de aviso:");
         System.out.println("1 - Segurança");
         System.out.println("2 - Infraestrutura");
@@ -131,7 +138,11 @@ public class ConsoleView {
         System.out.print("Local: ");
         String local = sc.nextLine();
 
+<<<<<<< Updated upstream
        controller.enviarAviso(morador, titulo, descricao, urgencia, local, tipo);
+=======
+        controller.enviarAviso(morador,senha, titulo, descricao, urgencia, local, tipo);
+>>>>>>> Stashed changes
 
         System.out.println("Aviso enviado com sucesso!");
     }

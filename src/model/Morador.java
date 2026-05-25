@@ -10,18 +10,20 @@ public abstract class Morador {
     protected String nome;
     protected String endereco;
     protected LocalDateTime dataCadastro;
+    protected String senha;
     protected String telefone;
     protected String email;
     protected List<Aviso> avisos = new ArrayList<>();
 
     private static int contadorId = 1;
 
-    public Morador(String nome, String endereco, String telefone, String email) {
+    public Morador(String nome, String endereco, String telefone, String email, String senha) {
         this.id = contadorId++;
         this.nome = nome;
         this.endereco = endereco;
         this.telefone = telefone;
         this.email = email;
+        this.senha = senha;
         this.dataCadastro = LocalDateTime.now();
     }
 
@@ -41,6 +43,9 @@ public abstract class Morador {
         return endereco;
     }
 
+    public String getSenha() {
+        return senha;
+    }
     public String getTelefone() {
         return telefone;
     }

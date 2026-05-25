@@ -8,8 +8,8 @@ public class MoradorService {
 
     private List<Morador> moradores = new ArrayList<>();
 
-    public Morador cadastrar(String nome, String endereco, String telefone, String email) {
-        Morador m = new MoradorComum(nome, endereco, telefone, email);
+    public Morador cadastrar(String nome, String endereco, String telefone, String email, String senha) {
+        Morador m = new MoradorComum(nome, endereco, telefone, email, senha);
         moradores.add(m);
         return m;
     }
