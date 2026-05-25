@@ -31,7 +31,6 @@ public class SistemaController {
     // AVISO
     // =========================
 
-<<<<<<< Updated upstream
     public void enviarAviso(Morador m, String titulo, String desc, String urgencia, String local, int tipo) {
     if (m == null) {
         System.out.println("Erro: morador inválido.");
@@ -66,7 +65,7 @@ public class SistemaController {
 
     System.out.println("✅ Aviso enviado com sucesso! ID: " + novoId);
 }
-=======
+
     public void enviarAviso(Morador m, String senha, String titulo, String desc, String urgencia, String local, int tipo) {
 
         if (m == null) {
@@ -106,7 +105,6 @@ public class SistemaController {
 
         System.out.println("✅ Aviso enviado!");
     }
->>>>>>> Stashed changes
     public void listarAvisos() {
         List<Aviso> avisos = avisoService.listar();
 
