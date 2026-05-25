@@ -108,10 +108,6 @@ public class ConsoleView {
         System.out.print("Descrição: ");
         String descricao = sc.nextLine();
 
-<<<<<<< Updated upstream
-        
-=======
->>>>>>> Stashed changes
         System.out.println("Tipo de aviso:");
         System.out.println("1 - Segurança");
         System.out.println("2 - Infraestrutura");
@@ -138,11 +134,11 @@ public class ConsoleView {
         System.out.print("Local: ");
         String local = sc.nextLine();
 
-<<<<<<< Updated upstream
+
        controller.enviarAviso(morador, titulo, descricao, urgencia, local, tipo);
-=======
+
         controller.enviarAviso(morador,senha, titulo, descricao, urgencia, local, tipo);
->>>>>>> Stashed changes
+
 
         System.out.println("Aviso enviado com sucesso!");
     }
