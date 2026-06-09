@@ -2,8 +2,8 @@ package model;
 
 public class MoradorComum extends Morador {
 
-    public MoradorComum(String nome, String endereco, String telefone, String email, String senha) {
-        super(nome, endereco, telefone, email, senha);
+    public MoradorComum(String nome, String bairro, String rua, String telefone, String email, String senha) {
+        super(nome, bairro, rua, telefone, email, senha);
     }
 
     @Override
