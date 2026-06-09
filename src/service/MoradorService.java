@@ -3,13 +3,14 @@ package service;
 import model.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class MoradorService {
 
     private List<Morador> moradores = new ArrayList<>();
 
-    public Morador cadastrar(String nome, String endereco, String telefone, String email, String senha) {
-        Morador m = new MoradorComum(nome, endereco, telefone, email, senha);
+    public Morador cadastrar(String nome, String bairro, String rua, String telefone, String email, String senha) {
+        Morador m = new MoradorComum(nome, bairro, rua, telefone, email, senha);
         moradores.add(m);
         return m;
     }
@@ -23,5 +24,12 @@ public class MoradorService {
 
     public List<Morador> listar() {
         return moradores;
+    }
+
+    public List<Morador> listarPorBairro(String bairro) {
+        return moradores.stream()
+                .filter(m -> m.getBairro() != null &&
+                             m.getBairro().equalsIgnoreCase(bairro))
+                .collect(Collectors.toList());
     }
 }

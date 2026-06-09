@@ -3,7 +3,7 @@ package service;
 import model.*;
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.stream.Collectors;
 
 public class AvisoService {
     private List<Aviso> avisos = new ArrayList<>();
@@ -18,34 +18,48 @@ public class AvisoService {
     }
 
     public List<Aviso> filtrarUrgencia(String urgencia) {
-        List<Aviso> lista = new ArrayList<>();
-        for (Aviso a : avisos) {
-            if (a.getUrgencia().equalsIgnoreCase(urgencia)) {
-                lista.add(a);
-            }
-        }
-        return lista;
+        return avisos.stream()
+                .filter(a -> a.getUrgencia().equalsIgnoreCase(urgencia))
+                .collect(Collectors.toList());
     }
+
+    public List<Aviso> filtrarPorBairro(String bairro) {
+        return avisos.stream()
+                .filter(a -> a.getBairro() != null &&
+                             a.getBairro().equalsIgnoreCase(bairro))
+                .collect(Collectors.toList());
+    }
+
+    public List<String> listarBairros() {
+        return avisos.stream()
+                .map(Aviso::getBairro)
+                .filter(b -> b != null && !b.isBlank())
+                .distinct()
+                .sorted()
+                .collect(Collectors.toList());
+    }
+
     public int gerarProximoId() {
         return contador++;
     }
- // Sobrecarga de métodos para criar avisos de diferentes formas
-    
-    public void criarAviso(String mensagem) {
-    System.out.println("Aviso geral: " + mensagem);
-}
 
-public void criarAviso(String mensagem, String rua) {
-    System.out.println("Aviso para a rua " + rua + ": " + mensagem);
-}
+    public boolean excluirAviso(int avisoId, int moradorId) {
+        return avisos.removeIf(a ->
+                a.getId() == avisoId
+                && a.getMorador() != null
+                && a.getMorador().getId() == moradorId);
+    }
 
-public void criarAviso(String mensagem, String rua, boolean urgente) {
+    public Aviso buscarPorId(int avisoId) {
+        return avisos.stream()
+                .filter(a -> a.getId() == avisoId)
+                .findFirst()
+                .orElse(null);
+    }
 
-    if (urgente) {
-        System.out.println("AVISO URGENTE para " + rua + ": " + mensagem);
-    } else {
-        System.out.println("Aviso para " + rua + ": " + mensagem);
+    public List<Aviso> listarPorMorador(int moradorId) {
+        return avisos.stream()
+                .filter(a -> a.getMorador() != null && a.getMorador().getId() == moradorId)
+                .collect(Collectors.toList());
     }
 }
-}
-   

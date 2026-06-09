@@ -16,9 +16,14 @@ public class EstatisticaService {
             }
         }
 
-        System.out.println("Estatísticas:");
-        System.out.println("Verde: " + verde);
-        System.out.println("Amarelo: " + amarelo);
-        System.out.println("Vermelho: " + vermelho);
+        int total = verde + amarelo + vermelho;
+
+        int pctVermelho = total > 0 ? (int) Math.round((vermelho * 100.0) / total) : 0;
+        int pctAmarelo  = total > 0 ? (int) Math.round((amarelo  * 100.0) / total) : 0;
+        int pctVerde    = total > 0 ? (int) Math.round((verde    * 100.0) / total) : 0;
+
+        System.out.println("• Vermelho (urgente): "     + vermelho + " avisos (" + pctVermelho + "%)");
+        System.out.println("• Amarelo (atenção): "      + amarelo  + " avisos (" + pctAmarelo  + "%)");
+        System.out.println("• Verde (informativo): "    + verde    + " avisos (" + pctVerde    + "%)");
     }
 }
